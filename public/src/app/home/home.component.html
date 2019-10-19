@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body> 
+    <div class="container">
+        <h1>Product List</h1>
+        <a class="button1" [routerLink]="['products/new']">Add new product</a>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th class="id" scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of myobjects">
+                <td>{{x._id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.qty}}</td>
+                <td>{{x.price}}</td>
+                <td>
+                    <button class="button2" [routerLink]="['products/edit', x._id]">Edit</button>
+                    <button class="button3"[routerLink]="['products/show', x._id]">Details</button>
+                </td>
+        </tbody>
+    </table>
+</div>
+
+        
+    <router-outlet></router-outlet>
+</body>
+
+</html> 
